@@ -1,0 +1,47 @@
+.nonmetal {
+    background-color: #AB91FF;
+}
+.metal {
+    background-color: #f2d5f2;
+}
+.halogen {
+    background-color: #F991FF;
+}
+.noble_gas {
+    background-color: #91DFFF;
+}
+.alkalai {
+    background-color: #FFC591;
+}
+.alkaline_earth {
+    background-color: #FFDF91;
+}
+.post_metal {
+    background-color: #FFF991;
+}
+.metalloid {
+    background-color: #92FF9F;
+}
+
+body {
+    background: aliceblue;
+}
+
+table {
+    border-collapse: collapse;
+}
+
+td {
+    border: 1px solid black;
+    padding: 10px;
+    text-align: center;
+}
+
+h4 {
+    margin: 5px 0;
+}
+
+ul {
+    margin: 5px 0;
+    padding-left: 20px;
+}
