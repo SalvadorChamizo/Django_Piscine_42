@@ -1,0 +1,104 @@
+{% extends 'ex01/base.html' %}
+{% load static %}
+
+{% block title %}Ex01: Template engine.{% endblock %}
+
+{% block style %}
+<link rel="stylesheet" href="{% static 'ex01/style2.css' %}">
+{% endblock %}
+
+{% block content %}
+<h1>Django Template Engine: How It Works</h1>
+
+  <p>
+    Django’s template engine combines static HTML with dynamic data passed from the view.
+    It uses special tags and variables that are interpreted on the server before the final
+    HTML is sent to the browser.
+  </p>
+
+  <h2>1. Template Rendering Process</h2>
+  <ol>
+    <li>A view sends a <strong>context</strong> (dictionary of variables) to the template.</li>
+    <li>The template is parsed by Django’s engine.</li>
+    <li>Template syntax is evaluated.</li>
+    <li>Final HTML is generated and returned to the browser.</li>
+  </ol>
+
+  <h2>2. Displaying Context Variables</h2>
+  <p>
+    Variables are inserted using double curly braces:
+  </p>
+
+  <pre>
+    {% verbatim %}
+    {{ username }}
+    {{ age }}
+    {% endverbatim %}
+  </pre>
+
+  <p>
+    These placeholders are replaced with actual values from the context.
+  </p>
+
+  <h2>3. Blocks (Template Inheritance)</h2>
+  <p>
+    Blocks define sections that child templates can override.
+  </p>
+
+  <pre>
+    {% verbatim %}
+    &lt;!-- base.html --&gt;
+    &lt;body&gt;
+      {% block content %}
+      Default content
+      {% endblock %}
+    &lt;/body&gt;
+    {% endverbatim %}
+  </pre>
+
+  <pre>
+    {% verbatim %}
+    &lt;!-- child.html --&gt;
+    {% extends "base.html" %}
+    {% block content %}
+      &lt;p&gt;Custom page content&lt;/p&gt;
+    {% endblock %}
+    {% endverbatim %}
+  </pre>
+
+  <h2>4. Loops (for ... in)</h2>
+  <p>
+    Loop over collections:
+  </p>
+
+  <pre>
+    {% verbatim %}
+    {% for item in items %}
+      &lt;li&gt;{{ item }}&lt;/li&gt;
+    {% endfor %}
+    {% endverbatim %}
+  </pre>
+
+  <h2>5. Conditional Statements (if)</h2>
+  <p>
+    Conditional rendering:
+  </p>
+
+  <pre>
+    {% verbatim %}
+    {% if user.is_authenticated %}
+      &lt;p&gt;Welcome, {{ user.username }}!&lt;/p&gt;
+    {% else %}
+      &lt;p&gt;Please log in.&lt;/p&gt;
+    {% endif %}
+    {% endverbatim %}
+  </pre>
+
+  <h2>Summary</h2>
+  <p>
+    Django templates allow clean separation of logic and presentation using variables,
+    blocks, loops, and conditions—all processed safely on the server.
+  </p>
+
+
+{% endblock %}

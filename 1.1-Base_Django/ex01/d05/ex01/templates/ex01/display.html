@@ -1,0 +1,62 @@
+{% extends 'ex01/base.html' %}
+
+{% block title %}Ex01: Display process of a static page.{% endblock %}
+
+{% block content %}
+<h1>How a Static Web Page is Displayed (Request → Response)</h1>
+
+  <ol>
+    <li>
+      <strong>User Request:</strong>
+      A user types a URL into their browser (e.g., https://example.com/home) and presses Enter.
+    </li>
+
+    <li>
+      <strong>HTTP Request Sent:</strong>
+      The browser sends an HTTP request (usually a GET request) to the web server hosting the application.
+    </li>
+
+    <li>
+      <strong>Routing:</strong>
+      The web server or framework (e.g., Django, Flask, Express) receives the request and matches the URL to a specific route.
+    </li>
+
+    <li>
+      <strong>View Function:</strong>
+      The matched route calls a view (or controller).  
+      The view is responsible for handling the request logic.  
+      For a simple static page, the view does minimal work (no database calls).
+    </li>
+
+    <li>
+      <strong>Template Selection:</strong>
+      The view selects an HTML template file (e.g., "home.html").
+    </li>
+
+    <li>
+      <strong>Template Rendering:</strong>
+      The template engine processes the HTML file.  
+      If there are placeholders (variables), they are filled with data (even if minimal or none).
+    </li>
+
+    <li>
+      <strong>HTTP Response:</strong>
+      The rendered HTML is returned by the view as an HTTP response to the browser.
+    </li>
+
+    <li>
+      <strong>Browser Rendering:</strong>
+      The browser receives the HTML, parses it, and builds the DOM (Document Object Model).
+    </li>
+
+    <li>
+      <strong>Page Displayed:</strong>
+      The browser renders the page visually for the user, applying CSS and executing any JavaScript if present.
+    </li>
+  </ol>
+
+  <h2>Summary Flow</h2>
+  <p>
+    Browser → HTTP Request → Server → Route → View → Template → Rendered HTML → HTTP Response → Browser → Display
+  </p>
+{% endblock %}
